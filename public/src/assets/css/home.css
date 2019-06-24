@@ -1,0 +1,12 @@
+.divArtist {
+  border: 1px;
+  color: whitesmoke;
+}
+
+li {
+  border: 2px solid black;
+  color: blue;
+  background-color: aquamarine;
+  margin: 5px;
+  margin-right: 80%;
+}
