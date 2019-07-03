@@ -1,5 +1,6 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, call, put, select } from "redux-saga/effects";
 import axios from "axios";
+import { getToken } from "./selector";
 
 export const artistSaga = [takeLatest("SEARCH_ARTIST", searchArtistSaga)];
 
@@ -24,7 +25,9 @@ function searchArtist(...args) {
 
 export function* searchArtistSaga(action) {
   try {
-    const response = yield call(searchArtist, action.name, action.access_token);
+    const token = yield select(getToken);
+    const response = yield call(searchArtist, action.name, token.accessToken);
+    console.log(token.accessToken);
     const artists = response.data.artists.items;
     console.log(artists);
     yield put({ type: "SEARCH_ARTIST_SUCCESS", artists });
