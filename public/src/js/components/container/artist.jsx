@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import DisplayArtist from "../presentational/DisplayArtist.jsx";
 import { connect } from "react-redux";
-import { SearchArtist } from "../../../store/actions/artist/artist.action";
+import {
+  SearchArtist,
+  StoreArtistId
+} from "../../../store/actions/artist/artist.action";
+import {
+  SearchAlbum,
+  StoreAlbumId
+} from "../../../store/actions/album/album.action";
 
 class Artist extends Component {
   constructor(props) {
@@ -12,12 +19,23 @@ class Artist extends Component {
     };
     this.props = props;
   }
+  storeArtistId = spotifyId => {
+    //Added if condition
+    if (this.props.spotifyId !== spotifyId) {
+      this.props.StoreArtistId(spotifyId);
+      this.props.SearchAlbum();
+    }
+  };
+
+  // componentDidUpdate() {
+  //   this.props.SearchAlbumFail("");
+  // }
+
   searchArtistName = () => {
-    console.log("here");
     name = event.target.value;
-    console.log(name);
+    this.props.StoreArtistId("");
+    this.props.StoreAlbumId("");
     this.props.SearchArtist(name);
-    console.log("Checking props: ", this.props.artist);
     this.setState({ name: name, artist: this.props.artist });
   };
 
@@ -27,20 +45,25 @@ class Artist extends Component {
         searchArtistName={this.searchArtistName}
         name={this.state.name}
         artist={this.props.artist}
+        storeArtistId={this.storeArtistId}
       />
     );
   }
 }
 const mapDispatchToProps = {
-  SearchArtist: SearchArtist
+  SearchArtist: SearchArtist,
+  StoreArtistId: StoreArtistId,
+  StoreAlbumId: StoreAlbumId,
+  SearchAlbum: SearchAlbum
 };
 
 const mapStateToProps = state => {
-  console.log("Checking in mapstatetoprops: ", state.artist.artists);
+  // console.log("Checking in mapstatetoprops: ", state.artist.artists);
   const { artists } = state.artist;
-  console.log("ARTIST: ", artists);
+  // console.log("ARTIST: ", artists);
   return {
-    artist: artists
+    artist: artists,
+    spotifyId: state.artist.id
   };
 };
 

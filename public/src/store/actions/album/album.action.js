@@ -1,14 +1,13 @@
 import {
   SEARCH_ALBUM,
   SEARCH_ALBUM_SUCCESS,
-  SEARCH_ALBUM_FAIL
+  SEARCH_ALBUM_FAIL,
+  STORE_ALBUM_ID
 } from "./album.type";
 
-export const SearchAlbum = spotify_id => {
+export const SearchAlbum = () => {
   return {
-    type: SEARCH_ALBUM,
-    spotify_id: spotify_id
-    // access_token: access_token
+    type: SEARCH_ALBUM
   };
 };
 
@@ -21,5 +20,12 @@ export const SearchAlbumFail = () => {
 export const SearchAlbumSuccess = () => {
   return {
     type: SEARCH_ALBUM_SUCCESS
+  };
+};
+
+export const StoreAlbumId = albumId => {
+  return {
+    type: STORE_ALBUM_ID,
+    albumId: albumId
   };
 };

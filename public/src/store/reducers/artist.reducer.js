@@ -1,14 +1,16 @@
 import {
   SEARCH_ARTIST,
   SEARCH_ARTIST_SUCCESS,
-  SEARCH_ARTIST_FAIL
+  SEARCH_ARTIST_FAIL,
+  STORE_ARTIST_ID
 } from "../actions/artist/artist.type";
 
 const initialState = {
   artists: [],
   loading: false,
   loaded: false,
-  fail: false
+  fail: false,
+  id: ""
 };
 
 const Artist = (state = initialState, action) => {
@@ -17,7 +19,8 @@ const Artist = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        loaded: false
+        loaded: false,
+        artists: []
       };
 
     case SEARCH_ARTIST_SUCCESS:
@@ -33,7 +36,14 @@ const Artist = (state = initialState, action) => {
         ...state,
         artists: [],
         fail: true,
-        loading: false
+        loading: false,
+        id: ""
+      };
+
+    case STORE_ARTIST_ID:
+      return {
+        ...state,
+        id: action.id
       };
     default:
       return state;

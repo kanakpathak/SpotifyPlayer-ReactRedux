@@ -1,11 +1,13 @@
 import {
   SEARCH_ALBUM,
   SEARCH_ALBUM_FAIL,
-  SEARCH_ALBUM_SUCCESS
+  SEARCH_ALBUM_SUCCESS,
+  STORE_ALBUM_ID
 } from "../actions/album/album.type";
 
 const initialState = {
   albums: [],
+  albumId: "",
   loading: false,
   loaded: false,
   fail: false
@@ -17,7 +19,9 @@ const Album = (state = { initialState }, action) => {
       return {
         ...state,
         loading: true,
-        loaded: false
+        loaded: false,
+        albums: [],
+        albumId: ""
       };
 
     case SEARCH_ALBUM_FAIL:
@@ -25,7 +29,8 @@ const Album = (state = { initialState }, action) => {
         ...state,
         fail: true,
         loaded: false,
-        albums: []
+        albums: [],
+        albumId: ""
       };
 
     case SEARCH_ALBUM_SUCCESS:
@@ -33,7 +38,14 @@ const Album = (state = { initialState }, action) => {
         ...state,
         loaded: true,
         loading: false,
-        albums: action.albums
+        albums: action.albums,
+        fail: false
+      };
+    // albumId as paload in case searchAlbum
+    case STORE_ALBUM_ID:
+      return {
+        ...state,
+        albumId: action.albumId
       };
 
     default:

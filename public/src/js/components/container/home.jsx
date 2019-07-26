@@ -16,10 +16,10 @@ class Home extends Component {
     // this.refreshToken = this.tokens.split("&refresh_token=")[1];
 
     this.state = {
-      artists: [],
-      albums: [],
-      tracks: [],
-      currentlyPlaying: "",
+      // artists: [],
+      // albums: [],
+      // tracks: [],
+      // currentlyPlaying: "",
       accessToken: this.tokens.split("&refresh_token=")[0],
       refreshToken: this.tokens.split("&refresh_token=")[1]
     };
@@ -27,7 +27,7 @@ class Home extends Component {
   componentDidMount() {
     //dispatch action to store access token and refresh token into store.
     if (this.state.accessToken !== "") {
-      console.log("Store Token Success", this.state.accessToken);
+      // console.log("Store Token Success", this.state.accessToken);
       this.props.storeTokenSuccess(
         this.state.accessToken,
         this.state.refreshToken

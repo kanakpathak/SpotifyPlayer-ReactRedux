@@ -5,35 +5,27 @@ import {
   SEARCH_ALBUM_FAIL,
   SEARCH_ALBUM_SUCCESS
 } from "../actions/album/album.type";
-import { getToken } from "./selector";
+import { getToken, getArtistId } from "./selector";
 
 export const albumSaga = [takeLatest(SEARCH_ALBUM, searchAlbumSaga)];
 
 function searchAlbum(...args) {
   var spotify_id = args[0],
-    access_token = args[1];
+    accessToken = args[1];
 
-  console.log("Album api about to hit", spotify_id);
   return axios.get(`https://api.spotify.com/v1/artists/${spotify_id}/albums`, {
-    headers: { Authorization: `Bearer ${access_token}` }
+    headers: { Authorization: `Bearer ${accessToken}` }
   });
 }
 
 export function* searchAlbumSaga(action) {
   try {
-    console.log(`action spotify id ${action.spotify_id}`);
     const token = yield select(getToken);
-    const response = yield call(
-      searchAlbum,
-      action.spotify_id,
-      token.access_token
-    );
-    console.log("Success");
-    const albums = response.data;
+    const id = yield select(getArtistId);
+    const response = yield call(searchAlbum, id, token.accessToken);
+    const albums = response.data.items;
     yield put({ type: SEARCH_ALBUM_SUCCESS, albums });
   } catch (error) {
-    console.log(`error ${error}`);
-    console.log("I reached catch block in albums saga");
     yield put({ type: SEARCH_ALBUM_FAIL });
   }
 }
