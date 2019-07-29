@@ -1,5 +1,5 @@
 .divContainer {
-  border: 10px;
+  border: 10px blue;
   color: red;
 }
 
@@ -20,10 +20,4 @@
   left: 0;
   text-decoration: none;
   z-index: 10;
-}
-
-div {
-  border: 2px dotted green;
-  padding: 5%;
-  padding-bottom: 13%;
 }

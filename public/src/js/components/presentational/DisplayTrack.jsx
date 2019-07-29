@@ -6,8 +6,11 @@ const DisplayTrack = ({ tracks, albumId }) => {
       {tracks.map((item, index) => (
         <button key={index}>
           <b>{item["name"]}</b>
-          <b>{item["preview_url"]}</b>
-          <b>{albumId}</b>
+          <audio controls>
+            <source src={item["preview_url"]} type="audio/mpeg" /> Sorry
+          </audio>
+          {/* <b>{item["preview_url"]}</b>
+          <b>{albumId}</b> */}
         </button>
       ))}
     </div>
