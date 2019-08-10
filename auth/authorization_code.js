@@ -24,7 +24,7 @@ var authorization = {
     var scope = "user-read-private user-read-email";
     res.cookie(stateKey, state);
     console.log(redirect_uri);
-    res.redirect(
+    return res.redirect(
       "https://accounts.spotify.com/authorize?" +
         querystring.stringify({
           response_type: "code",

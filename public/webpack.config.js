@@ -22,8 +22,12 @@ module.exports = {
       }
     ]
   },
+  devtool: "source-map",
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      "/api": "http://localhost:3000"
+    }
   },
   plugins: [
     new HtmlWebPackPlugin({

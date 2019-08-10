@@ -1,52 +1,72 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import { Carousel } from "react-responsive-carousel";
+import styled from "styled-components";
+import { loginUrl } from "../../api-config";
+import { carouselImages } from "../../utils";
+
+const Wrapper = styled.div`
+  height: 100vh;
+  overflow: hidden;
+`;
+const LoginCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
+const Heading = styled.h1`
+  color: white;
+`;
+
+const Button = styled.button`
+  padding: 5px;
+  border: 1px solid white;
+  font-size: 18px;
+  color: white;
+  background: black;
+  border-radius: 4px;
+`;
+
+const CarouselImage = styled.img`
+  height: 100%;
+  width: 100%;
+`;
 
 const DisplayLogin = ({ text, handleLogin, disabled }) => {
   return (
-    <div>
-      {/* <Carousel
+    <Wrapper>
+      <Carousel
         autoPlay={true}
         infiniteLoop={true}
         showThumbs={false}
         showArrows={false}
         showIndicators={false}
-        thumbWidth="100"
+        thumbWidth={100}
       >
-        <div style={styles.container}>
-          <img src="https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v3/Wallpaper-v3-400.jpg" />
-        </div>
-        <div style={styles.container}>
-          <img src="https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v3/Wallpaper-v3-400.jpg" />
-        </div>
-        <div style={styles.container}>
-          <img src="https://cwsmgmt.corsair.com/newscripts/landing-pages/wallpaper/v3/Wallpaper-v3-400.jpg" />
-        </div>
-      </Carousel> */}
+        {carouselImages.map((img, index) => (
+          <CarouselImage key={index} src={img} />
+        ))}
+      </Carousel>
 
-      <h1 style={{ alignText: "center" }}>LeagueX</h1>
-      <Button
-        variant="contained"
-        color="primary"
-        href="http://localhost:3000/api/getAuth"
-        onClick={handleLogin}
-        disabled={disabled}
-      >
-        Login to Spotify
-      </Button>
-      <p>{text}</p>
+      <LoginCard>
+        <Heading>My Music App</Heading>
+        <Button onClick={handleLogin} disabled={disabled}>
+          Login to Spotify
+        </Button>
+        <p>{text}</p>
+      </LoginCard>
+
       {/* <button style={styles.loginBtn}>Login with spotify</button> */}
-    </div>
+    </Wrapper>
   );
 };
 
 export default DisplayLogin;
-
-const styles = {
-  container: {
-    height: "100vh",
-    width: "100%"
-  },
-
-  loginbox: {}
-};
