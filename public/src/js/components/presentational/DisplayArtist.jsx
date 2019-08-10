@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { divContainer, divX, link } from "../../../assets/css/artist.css";
+import { Backdrop } from "@material-ui/core";
 
 const DisplayArtist = ({ searchArtistName, name, artist, storeArtistId }) => {
   return (
