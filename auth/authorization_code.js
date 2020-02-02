@@ -19,7 +19,6 @@ var authorization = {
   },
 
   getAuthorization: async function(req, res) {
-    console.log("I am here");
     var state = authorization.generateRandomString(16);
     var scope = "user-read-private user-read-email";
     res.cookie(stateKey, state);

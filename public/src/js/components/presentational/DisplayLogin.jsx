@@ -26,7 +26,7 @@ const Heading = styled.h1`
   color: white;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   padding: 5px;
   border: 1px solid white;
   font-size: 18px;
@@ -58,7 +58,7 @@ const DisplayLogin = ({ text, handleLogin, disabled }) => {
 
       <LoginCard>
         <Heading>My Music App</Heading>
-        <Button onClick={handleLogin} disabled={disabled}>
+        <Button href={loginUrl} disabled={disabled}>
           Login to Spotify
         </Button>
         <p>{text}</p>

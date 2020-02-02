@@ -13,14 +13,14 @@ export default class Login extends Component {
 
   handleLogin = event => {
     this.setState({ text: "taking you to Spotify", disabled: true });
-    axios({ url: "/api/getAuth" })
-      .then(data => {
-        debugger;
-        console.log("DATA", data);
-      })
-      .catch(err => {
-        debugger;
-      });
+    // axios({ url: "/api/getAuth" })
+    //   .then(data => {
+    //     debugger;
+    //     console.log("DATA", data);
+    //   })
+    //   .catch(err => {
+    //     debugger;
+    //   });
   };
 
   render() {
