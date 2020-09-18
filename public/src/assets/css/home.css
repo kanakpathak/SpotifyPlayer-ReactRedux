@@ -1,0 +1,56 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #df4545 #424242;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: #424242;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #df4545;
+  border-radius: 10px;
+}
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #212121;
+}
+
+.header {
+  color: #df4545;
+  align-self: center;
+  font-family: "Gill Sans";
+  font-size: 20px;
+}
+
+.home {
+  display: flex;
+  height: 90vh;
+  justify-content: space-around;
+  padding-left: 20px;
+}
+
+.artistContainer {
+  flex: 1;
+  background-color: #424242;
+  color: #df4545;
+  margin: 10px 10px;
+  overflow: auto;
+}
+
+.albumContainer {
+  flex: 2;
+  background-color: #424242;
+  color: #df4545;
+  margin: 10px 10px;
+  overflow: auto;
+}
+
+.trackContainer {
+  flex: 1;
+  background-color: #424242;
+  color: #df4545;
+  margin: 10px 20px;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 
 const DisplayRecommendedTrack = ({ albumId }) => {
-  return <div>hey you</div>;
+  return <div></div>;
 };
 
 export default DisplayRecommendedTrack;

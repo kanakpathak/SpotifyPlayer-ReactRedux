@@ -38,7 +38,14 @@ class Home extends Component {
     }
   }
   render() {
-    return <DisplayHome />;
+    console.log("here", this.props);
+    return (
+      <DisplayHome
+        album={this.props.album}
+        track={this.props.track}
+        spotifyID={this.props.spotifyId}
+      />
+    );
   }
 }
 const mapDispatchToProps = {

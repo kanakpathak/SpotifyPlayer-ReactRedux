@@ -1,31 +1,36 @@
-/* .divContainer {
-  border: 10px blue;
-  color: red;
+.displayArtist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #424242;
+  color: #df4545;
+  margin: 40px 30px;
 }
 
-.divX {
-  border: 2px solid black;
-  color: blue;
-  background-color: aquamarine;
+.artistList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.artist {
+  border: 1px solid brown;
+  display: flex;
+  justify-content: space-between;
   margin: 5px;
-  position: relative;
+  background-color: white;
+  opacity: 0.8;
+  color: FF0000;
 }
 
-.links {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  text-decoration: none;
-  z-index: 10;
+.artistDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 120px;
+  width: 160px;
+  line-height: 12px;
+  font-size: 12px;
+  padding: 5px;
 }
-
-.img {
-  display: block;
-  max-width: 230px;
-  max-height: 95px;
-  width: auttio;
-  height: auto;
-} */

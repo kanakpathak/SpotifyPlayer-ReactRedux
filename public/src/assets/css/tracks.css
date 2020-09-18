@@ -1,0 +1,17 @@
+.displayTrack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #424242;
+  color: #df4545;
+  margin: 40px 30px;
+}
+
+.trackList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  background-color: whitesmoke;
+  align-items: center;
+}

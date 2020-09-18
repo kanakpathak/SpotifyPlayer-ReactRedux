@@ -19,8 +19,8 @@ const Artist = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        loaded: false,
-        artists: []
+          loaded: false,
+          artists: []
       };
 
     case SEARCH_ARTIST_SUCCESS:
@@ -28,16 +28,16 @@ const Artist = (state = initialState, action) => {
       return {
         ...state,
         artists: action.artists,
-        loaded: true,
-        loading: false
+          loaded: true,
+          loading: false
       };
     case SEARCH_ARTIST_FAIL:
       return {
         ...state,
         artists: [],
-        fail: true,
-        loading: false,
-        id: ""
+          fail: true,
+          loading: false,
+          id: ""
       };
 
     case STORE_ARTIST_ID:

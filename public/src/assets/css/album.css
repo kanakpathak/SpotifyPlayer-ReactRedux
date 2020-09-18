@@ -1,0 +1,31 @@
+.displayAlbum {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+  padding: 10px;
+  flex: 1;
+  background-color: #424242;
+  color: #df4545;
+  margin: 40px 10px;
+}
+
+.albumList {
+  border: 1px solid whitesmoke;
+  margin: 5px;
+}
+
+/* .imgStyle {
+  opacity: 1;
+}
+
+.albumTitle {
+  position: absolute;
+  z-index: 2;
+  bottom: 5px;
+  left: 10px;
+  color: white;
+  font-size: 20px;
+  font-family: "sans-serif";
+  line-height: 20px;
+} */

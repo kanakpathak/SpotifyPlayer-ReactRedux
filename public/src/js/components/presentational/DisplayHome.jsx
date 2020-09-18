@@ -1,24 +1,25 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
-import { divContainer, divX, link } from "../../../assets/css/artist.css";
-import DisplayArtist from "./DisplayArtist.jsx";
 import Artist from "../container/artist.jsx";
 import Album from "../container/album.jsx";
 import Track from "../container/track.jsx";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "../../../assets/css/home.css";
 
 const DisplayHome = () => {
   return (
-    <div className="row">
-      <div className="col-sm-3">
-        <Artist />
+    <div className="homeContainer">
+      <div className="header">
+        <h1> MUSIC APP </h1>
       </div>
-      <div className="col-sm-6">
-        <Album />
-      </div>
-      <div className="col-sm-3">
-        <Track />
+      <div className="home">
+        <div className="artistContainer">
+          <Artist />
+        </div>
+        <div className="albumContainer">
+          <Album />
+        </div>
+        <div className="trackContainer">
+          <Track />
+        </div>
       </div>
     </div>
   );

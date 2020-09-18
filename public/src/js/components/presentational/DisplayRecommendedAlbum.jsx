@@ -1,7 +1,7 @@
 import React from "react";
 
 const DisplayRecommendedAlbum = () => {
-  return <div>blahs</div>;
+  return <div></div>;
 };
 
 export default DisplayRecommendedAlbum;
